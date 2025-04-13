@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Device Monitoring</title>
+    <link rel="stylesheet" href="css/sty1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Industrial Device Monitoring Dashboard</h1>
+            <div class="controls">
+                <button id="reset-all" class="btn btn-danger" >Reset All Devices</button>
+                <div class="export-controls">
+                    <span>Export Data:</span>
+                    <button id="export-json" class="btn btn-secondary">JSON</button>
+                    <button id="export-csv" class="btn btn-secondary">CSV</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="time-controls">
+            <h3>Historical Data Playback</h3>
+            <input type="range" id="time-slider" min="0" max="100" value="100">
+            <div class="slider-labels">
+                <span>24 hours ago</span>
+                <span>Current</span>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="device-card" id="pump1-card">
+                <div class="card-header">
+                    <h2>Water Pump</h2>
+                    <div class="status-indicator" id="pump1-status"></div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pump1-chart"></canvas>
+                </div>
+                <div class="device-data">
+                    <div class="data-item">
+                        <span class="label">Pressure:</span>
+                        <span class="value" id="pump1-pressure">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Flow Rate:</span>
+                        <span class="value" id="pump1-flow">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Temperature:</span>
+                        <span class="value" id="pump1-temp">--</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="toggle-pump1" class="btn btn-primary">Toggle Pump State</button>
+                </div>
+            </div>
+
+            <div class="device-card" id="pump2-card">
+                <div class="card-header">
+                    <h2>Lime Dosing Pump</h2>
+                    <div class="status-indicator" id="pump2-status"></div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pump2-chart"></canvas>
+                </div>
+                <div class="device-data">
+                    <div class="data-item">
+                        <span class="label">Pressure:</span>
+                        <span class="value" id="pump2-pressure">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Flow Rate:</span>
+                        <span class="value" id="pump2-flow">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">pH Level:</span>
+                        <span class="value" id="pump2-ph">--</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="toggle-pump2" class="btn btn-primary">Toggle Pump State</button>
+                </div>
+            </div>
+
+            <div class="device-card" id="pump3-card">
+                <div class="card-header">
+                    <h2>Sand Filter</h2>
+                    <div class="status-indicator" id="pump3-status"></div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="pump3-chart"></canvas>
+                </div>
+                <div class="device-data">
+                    <div class="data-item">
+                        <span class="label">Pressure:</span>
+                        <span class="value" id="pump3-pressure">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Flow Rate:</span>
+                        <span class="value" id="pump3-flow">--</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Temperature:</span>
+                        <span class="value" id="pump3-temp">--</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="toggle-pump3" class="btn btn-primary">Toggle Pump State</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="system-info">
+            <div class="info-item">
+                <span class="label">Last Updated:</span>
+                <span class="value" id="last-updated">--</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Connection Status:</span>
+                <span class="value" id="connection-status">Connecting...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app1.js"></script>
+</body>
+</html>
